@@ -36,6 +36,7 @@
             android:layout_margin="12dp"
             android:layout_marginStart="8dp"
             android:hint="@string/hint_name_blank"
+            android:singleLine="true"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

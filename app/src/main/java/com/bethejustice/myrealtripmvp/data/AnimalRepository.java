@@ -13,6 +13,9 @@ import com.bethejustice.myrealtripmvp.data.room.AnimalDatabase;
 import java.util.Arrays;
 import java.util.List;
 
+import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
+
 public class AnimalRepository {
 
     private static final String TAG = "AnimalRepository";
@@ -46,8 +49,8 @@ public class AnimalRepository {
         }
     }
 
-    public List<Animal> getAll() {
-        return animalDao.getAll();
+    public Single<List<Animal>> getAll() {
+        return animalDao.getAll().subscribeOn(Schedulers.io());
     }
 
 }

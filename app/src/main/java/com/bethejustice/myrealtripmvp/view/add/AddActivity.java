@@ -29,7 +29,7 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
                         return;
                     }
                     addAnimal(new Animal(AnimalType.fromString(binding.spAnimalType.getSelectedItem().toString()),
-                            binding.evAnimalName.toString()));
+                            binding.evAnimalName.getText().toString()));
                     finish();
                 }
         );

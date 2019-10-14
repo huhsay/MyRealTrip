@@ -6,12 +6,16 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.Single;
+
+
 @Dao
 public interface AnimalDao {
     @Insert
-    void insert(Animal animal);
+    public void insert(Animal animal);
 
-    @Query("SELECT * FROM animals")
-    List<Animal> getAll();
+    @Query("SELECT * FROM animals ORDER BY id DESC")
+    public Single<List<Animal>> getAll();
 
 }

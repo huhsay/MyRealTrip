@@ -6,11 +6,12 @@
     <string name="title_add"> 새로운 동물을 등록하세요 </string>
     <string name="title_cancel"> Cancel </string>
 
-
     <string name="btn_add"> 등록 </string>
     <string name="btn_cancel"> 취소 </string>
 
     <string name="mss_name_blank"> 이름을 작성하세요 </string>
+    <string name="mss_load_error"> 데이터 로드를 실패하였습니다. </string>
 
     <string name="hint_name_blank"> 이름을 입력하세요 </string>
+    <string name="mss_no_data">데이터가 없습니다.</string>
 </resources>
