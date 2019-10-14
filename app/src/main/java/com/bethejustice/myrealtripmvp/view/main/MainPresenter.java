@@ -7,7 +7,7 @@ import com.bethejustice.myrealtripmvp.data.AnimalRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
-public class MainPresenter {
+class MainPresenter {
 
     @NonNull
     final private AnimalRepository repository;
@@ -16,8 +16,8 @@ public class MainPresenter {
     @NonNull
     final private MainView mainView;
 
-    public MainPresenter(@NonNull AnimalRepository repository,
-                         @NonNull MainView mainView) {
+    MainPresenter(@NonNull AnimalRepository repository,
+                  @NonNull MainView mainView) {
         this.repository = repository;
         this.compositeDisposable = new CompositeDisposable();
         this.mainView = mainView;
@@ -26,7 +26,7 @@ public class MainPresenter {
     void getAnimal() {
         compositeDisposable.add(repository.getAll().observeOn(AndroidSchedulers.mainThread())
         .subscribe(mainView::setAnimal,
-                throwable -> mainView.equals(0)));
+                throwable -> mainView.showError(0)));
     }
 
     void onViewPaused() {

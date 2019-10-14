@@ -20,7 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
-    private static ActivityMainBinding binding;
+    private ActivityMainBinding binding;
     private AnimalAdapter animalAdapter;
     private MainPresenter presenter;
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void showError(@NonNull int error) {
+    public void showError(int error) {
         if(error == 0) {
             showMessage(getString(R.string.mss_load_error));
         }

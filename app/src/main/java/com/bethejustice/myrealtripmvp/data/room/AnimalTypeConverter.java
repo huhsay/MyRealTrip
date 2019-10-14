@@ -7,12 +7,12 @@ import com.bethejustice.myrealtripmvp.AnimalType;
 class AnimalTypeConverter {
 
     @TypeConverter
-    public static AnimalType stringToAnimalType(String type) {
+    static AnimalType stringToAnimalType(String type) {
         return AnimalType.fromString(type);
     }
 
     @TypeConverter
-    public static String typeToString(AnimalType animalType) {
+    static String typeToString(AnimalType animalType) {
         return animalType.getTypeString();
     }
 }
