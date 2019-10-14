@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddActivity">
+        tools:context=".view.add.AddActivity">
 
 
         <TextView
             android:id="@+id/tv_title_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_margin="24dp"
             android:text="@string/title_add"
-            android:textSize="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,40 +23,43 @@
             android:id="@+id/sp_animal_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
             android:entries="@array/animal_type"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_add">
-        </Spinner>
+            app:layout_constraintTop_toBottomOf="@id/tv_title_add" />
 
         <EditText
             android:id="@+id/ev_animal_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/title_animal_name"
-            app:layout_constraintBottom_toBottomOf="@+id/sp_animal_type"
+            android:layout_margin="12dp"
+            android:layout_marginStart="8dp"
+            android:hint="@string/hint_name_blank"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/sp_animal_type"
-            app:layout_constraintTop_toTopOf="@+id/sp_animal_type" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_animal_type" />
 
         <Button
             android:id="@+id/bt_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/title_cancel"
+            android:background="@drawable/bt_round_gray"
+            android:text="@string/btn_cancel"
             app:layout_constraintEnd_toStartOf="@+id/bt_add"
-            app:layout_constraintTop_toBottomOf="@+id/sp_animal_type" />
+            app:layout_constraintTop_toBottomOf="@+id/ev_animal_name" />
 
         <Button
             android:id="@+id/bt_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="@string/title_add"
+            android:background="@drawable/bt_round"
+            android:text="@string/btn_add"
+            android:textColor="@color/textWhite"
             app:layout_constraintBottom_toBottomOf="@+id/bt_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bt_cancel" />
