@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">MyRealTripMvp</string>
+    <string name="app_name">MyRealTrip</string>
+
+    <string name="title_animal_type"> Animal </string>
+    <string name="title_animal_name"> Name </string>
+    <string name="title_add"> Add </string>
+    <string name="title_cancel"> Cancel </string>
+
 </resources>

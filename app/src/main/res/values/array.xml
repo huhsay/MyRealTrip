@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="animal_type">
+        <item>강아지</item>
+        <item>고양이</item>
+        <item>앵무새</item>
+        <item>도마뱀</item>
+    </string-array>
+</resources>
