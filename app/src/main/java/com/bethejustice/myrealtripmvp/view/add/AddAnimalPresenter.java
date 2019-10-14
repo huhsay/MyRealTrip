@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.bethejustice.myrealtripmvp.data.AnimalRepository;
 import com.bethejustice.myrealtripmvp.data.room.Animal;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class AddAnimalPresenter {
@@ -24,6 +25,15 @@ public class AddAnimalPresenter {
     }
 
     void addAnimal(Animal animal) {
-        repository.insert(animal);
+        compositeDisposable.add(repository.insert(animal)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                            addAnimalView.showMessage("저장되었습니다.");
+                            addAnimalView.finishActivity(); },
+                        throwable -> addAnimalView.showMessage("실패하였습니다.")));
+    }
+
+    void onViewPaused() {
+        compositeDisposable.clear();
     }
 }

@@ -9,4 +9,6 @@ public interface AddAnimalView {
     void addAnimal(@NonNull Animal animal);
 
     void showMessage(@NonNull String message);
+
+    void finishActivity();
 }

@@ -30,7 +30,6 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
                     }
                     addAnimal(new Animal(AnimalType.fromString(binding.spAnimalType.getSelectedItem().toString()),
                             binding.evAnimalName.getText().toString()));
-                    finish();
                 }
         );
 
@@ -40,9 +39,9 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
+    protected void onPause() {
+        super.onPause();
+        presenter.onViewPaused();
     }
 
     @Override
@@ -53,5 +52,10 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
     @Override
     public void showMessage(@NonNull String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
     }
 }

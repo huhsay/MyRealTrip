@@ -1,18 +1,16 @@
 package com.bethejustice.myrealtripmvp.data;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
-
 
 import com.bethejustice.myrealtripmvp.data.room.Animal;
 import com.bethejustice.myrealtripmvp.data.room.AnimalDao;
 import com.bethejustice.myrealtripmvp.data.room.AnimalDatabase;
 
-import java.util.Arrays;
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 
@@ -39,14 +37,8 @@ public class AnimalRepository {
         return INSTANCE;
     }
 
-    public void insert(Animal animal) {
-        try {
-            Thread thread = new Thread(() -> animalDao.insert(animal));
-            thread.start();
-
-        } catch (Exception e) {
-            Log.d(TAG, "insert: " + Arrays.toString(e.getStackTrace()));
-        }
+    public Completable insert(Animal animal) {
+        return Completable.fromAction(() -> animalDao.insert(animal)).subscribeOn(Schedulers.io());
     }
 
     public Single<List<Animal>> getAll() {
