@@ -10,5 +10,5 @@ public interface MainView {
 
     void setAnimal(@NonNull List<Animal> animals);
 
-    void showError(@NonNull int error);
+    void showError(@NonNull String error);
 }

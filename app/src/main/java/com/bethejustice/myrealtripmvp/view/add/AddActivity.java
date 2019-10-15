@@ -22,6 +22,7 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add);
+        presenter = new AddAnimalPresenter(AnimalRepository.getInstance(this), this);
 
         binding.btAdd.setOnClickListener(view -> {
                     if(binding.evAnimalName.getText().toString().equals("")) {
@@ -34,8 +35,6 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
         );
 
         binding.btCancel.setOnClickListener(view -> finish());
-
-        presenter = new AddAnimalPresenter(AnimalRepository.getInstance(this), this);
     }
 
     @Override
@@ -44,7 +43,6 @@ public class AddActivity extends AppCompatActivity implements AddAnimalView {
         presenter.onViewPaused();
     }
 
-    @Override
     public void addAnimal(@NonNull Animal animal) {
         presenter.addAnimal(animal);
     }

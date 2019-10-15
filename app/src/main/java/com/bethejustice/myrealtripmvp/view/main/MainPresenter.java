@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.bethejustice.myrealtripmvp.data.AnimalRepository;
 
+import java.util.Objects;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -26,7 +28,7 @@ class MainPresenter {
     void getAnimal() {
         compositeDisposable.add(repository.getAll().observeOn(AndroidSchedulers.mainThread())
         .subscribe(mainView::setAnimal,
-                throwable -> mainView.showError(0)));
+                throwable -> mainView.showError(Objects.requireNonNull(throwable.getMessage()))));
     }
 
     void onViewPaused() {

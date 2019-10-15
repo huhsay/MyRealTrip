@@ -68,10 +68,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void showError(int error) {
-        if(error == 0) {
-            showMessage(getString(R.string.mss_load_error));
-        }
+    public void showError(String error) {
+        showMessage(error);
     }
 
     @Override
